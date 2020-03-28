@@ -5,6 +5,7 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -95,16 +96,6 @@ app.get("*", (req, res) => {
     });
 });
 
-// 
-// Goal: Create and render a 404 page with handlebars
-// 
-// 1. Setup the template to render the header and footer
-// 2. Setup the template to render an error message in paragraph
-// 3. Render the template for both 404 routes
-//      - Page not found
-//      - Help articles not found
-// 4. Test your work. Visit /what and /help/units
-
-app.listen(3000, () => {
-    console.log("Server started...");
+app.listen(port, () => {
+    console.log("Server is up on port " + port);
 });
